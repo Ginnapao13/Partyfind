@@ -19,8 +19,7 @@ class TableViewControllerplaces: UITableViewController {
     var arregloFiestas:[Fiestas]=[
      Fiestas(foto: UIImage(named: "hart")!, precio: "$250", nombre: "hart cdmx", ubicación: "chapultepec"),
      Fiestas(foto: UIImage(named: "ragga")!, precio: "$300", nombre: "Ragga club", ubicación: "Polanco"),
-     Fiestas(foto: UIImage(named: "bresh")!, precio: "500", nombre: "Bresh", ubicación: "Fronton Bucareli"),
-     Fiestas(foto: <#T##UIImage#>, precio: <#T##String#>, nombre: <#T##String#>, ubicación: <#T##String#>)
+     Fiestas(foto: UIImage(named: "bresh")!, precio: "500", nombre: "Bresh", ubicación: "Fronton Bucareli")
     ]
 
     override func viewDidLoad() {
@@ -45,15 +44,23 @@ class TableViewControllerplaces: UITableViewController {
         return arregloFiestas.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "celdita", for: indexPath) as!TableViewCellLugares
+        let celdaReciclada=arregloFiestas[indexPath.row]
 
+        cell.imgLugar.image=celdaReciclada.foto
+        cell.lblPrecio.text=celdaReciclada.precio
+        cell.lblNombre.text=celdaReciclada.nombre
+        cell.lblUbicación.text=celdaReciclada.ubicación
+        
         // Configure the cell...
 
         return cell
     }
-    */
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 250
+    }
 
     /*
     // Override to support conditional editing of the table view.
